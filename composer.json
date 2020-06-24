@@ -28,6 +28,7 @@
         "symfony/yaml": "4.4.*"
     },
     "require-dev": {
+        "phpstan/phpstan-symfony": "^0.12.6",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",

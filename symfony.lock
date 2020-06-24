@@ -105,6 +105,12 @@
     "phpdocumentor/type-resolver": {
         "version": "1.2.0"
     },
+    "phpstan/phpstan": {
+        "version": "0.12.30"
+    },
+    "phpstan/phpstan-symfony": {
+        "version": "0.12.6"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
