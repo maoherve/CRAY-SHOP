@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block header %}
+    {{ parent() }}
+{#{% include 'includes/_clipCRAY.html.twig' %}#}
+{% endblock %}
+
+{% block main %}
+    {% include 'includes/_quiSommesNous.html.twig' %}
+    {% include 'includes/_notrePolitique.html.twig' %}
+{% endblock %}
