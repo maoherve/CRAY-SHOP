@@ -14,7 +14,9 @@
                 <!-- Content -->
                 <h6 class="text-uppercase font-weight-bold">A savoir</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>Pour tout demande comerciale ou partenaria, merci de communiquer via instagram ou facebookn liens ci dessous.</p>
+                {% for text in aSavoir %}
+                <p>{{ text.text }}</p>
+                {% endfor %}
 
             </div>
             <!-- Grid column -->
@@ -25,15 +27,18 @@
                 <!-- Links -->
                 <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                {% for social in social %}
                 <p>
-                    <a href="#!">Facebook</a>
+                    <a href="{{ social.facebook }}">Facebook</a>
                 </p>
                 <p>
-                    <a href="#!">Instagram</a>
+                    <a href="{{ social.instagram }}">Instagram</a>
                 </p>
                 <p>
-                    <a href="#!">Linkedin</a>
+                    <a href="{{ social.linkedin }}">Linkedin</a>
                 </p>
+                {% endfor %}
+
                 <p>
                     <a href="#!">Help</a>
                 </p>

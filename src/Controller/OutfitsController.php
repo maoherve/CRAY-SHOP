@@ -3,7 +3,9 @@
 
 namespace App\Controller;
 
+use App\Entity\ASavoir;
 use App\Entity\Outfits;
+use App\Entity\Social;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,10 +31,30 @@ class OutfitsController extends AbstractController
 
         if (!$outfits) {
             throw $this->createNotFoundException(
+                'No text found in outfits table.'
+            );
+        }
+
+        $aSavoir = $this->getDoctrine()
+            ->getRepository(ASavoir::class)
+            ->findAll();
+
+        if (!$aSavoir) {
+            throw $this->createNotFoundException(
                 'No text found in who are us table.'
             );
         }
 
-        return $this->render('outfits/index.html.twig', ['outfits' => $outfits]);
+        $social = $this->getDoctrine()
+            ->getRepository(Social::class)
+            ->findAll();
+
+        if (!$social) {
+            throw $this->createNotFoundException(
+                'No text found in who are us table.'
+            );
+        }
+
+        return $this->render('outfits/index.html.twig', ['outfits' => $outfits, 'aSavoir' => $aSavoir, 'social' => $social]);
     }
 }
