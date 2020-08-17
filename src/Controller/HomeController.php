@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\ASavoir;
+use App\Entity\Social;
 use App\Entity\UrPolicy;
 use App\Entity\WhoAreUs;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -42,7 +44,30 @@ class HomeController extends AbstractController
             );
         }
 
+
+        $aSavoir = $this->getDoctrine()
+            ->getRepository(ASavoir::class)
+            ->findAll();
+
+        if (!$aSavoir) {
+            throw $this->createNotFoundException(
+                'No text found in who are us table.'
+            );
+        }
+
+        $social = $this->getDoctrine()
+            ->getRepository(Social::class)
+            ->findAll();
+
+        if (!$social) {
+            throw $this->createNotFoundException(
+                'No text found in who are us table.'
+            );
+        }
+
+
+
         return $this->render('home/index.html.twig', ['whoAreUs' => $whoAreUS,
-            'urPolicy' => $urPolicy]);
+            'urPolicy' => $urPolicy, 'aSavoir' => $aSavoir, 'social' => $social]);
     }
 }
