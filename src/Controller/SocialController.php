@@ -48,15 +48,6 @@ class SocialController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="social_show", methods={"GET"})
-     */
-    public function show(Social $social): Response
-    {
-        return $this->render('social/show.html.twig', [
-            'social' => $social,
-        ]);
-    }
 
     /**
      * @Route("/{id}/edit", name="social_edit", methods={"GET","POST"})

@@ -23,7 +23,6 @@
                 <td>{{ social.instagram }}</td>
                 <td>{{ social.Linkedin }}</td>
                 <td>
-                    <a href="{{ path('social_show', {'id': social.id}) }}">show</a>
                     <a href="{{ path('social_edit', {'id': social.id}) }}">edit</a>
                 </td>
             </tr>
@@ -36,4 +35,6 @@
     </table>
 
     <a href="{{ path('social_new') }}">Create new</a>
+    <a href="{{ path('admin_index') }}">Home admin</a>
+
 {% endblock %}
