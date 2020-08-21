@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 
-<title>ASavoir index</title>
+<title>UrPolicy index</title>
 
 {% block body %}
-    <h1>ASavoir index</h1>
+    <h1>UrPolicy index</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Title</th>
                 <th>Text</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for a_savoir in a_savoirs %}
+        {% for ur_policy in ur_policies %}
             <tr>
-                <td>{{ a_savoir.id }}</td>
-                <td>{{ a_savoir.text }}</td>
+                <td>{{ ur_policy.id }}</td>
+                <td>{{ ur_policy.title }}</td>
+                <td>{{ ur_policy.text }}</td>
                 <td>
-                    <a href="{{ path('asavoir_edit', {'id': a_savoir.id}) }}">edit</a>
+                    <a href="{{ path('ur_policy_edit', {'id': ur_policy.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('asavoir_new') }}">Create new</a>
+    <a href="{{ path('ur_policy_new') }}">Create new</a>
     <a href="{{ path('admin_index') }}">Home admin</a>
 {% endblock %}

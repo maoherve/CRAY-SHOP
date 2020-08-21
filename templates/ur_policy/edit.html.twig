@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit UrPolicy</title>
+
+{% block body %}
+    <h1>Edit UrPolicy</h1>
+
+    {{ include('ur_policy/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('ur_policy_index') }}">back to list</a>
+
+    {{ include('ur_policy/_delete_form.html.twig') }}
+{% endblock %}
