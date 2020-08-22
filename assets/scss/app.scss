@@ -1,6 +1,9 @@
 @import "vars";
 @import "~bootstrap/scss/bootstrap";
 @import "footer";
+@import "outfits";
+@import "admin";
+
 
 
 *{
@@ -15,6 +18,4 @@ body {
     background-color: $secondary-color;
 }
 
-a {
-    color: $warm-color;
-}
+
