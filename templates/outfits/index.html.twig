@@ -1,6 +1,37 @@
-{% extends 'layout.html.twig' %}
+<!DOCTYPE html>
 
-{% block main %}
-    {% include 'outfits/_outfits.html.twig' %}
+<title>Outfits index</title>
+
+{% block body %}
+    <h1>Outfits index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Picture</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for outfit in outfits %}
+            <tr>
+                <td>{{ outfit.id }}</td>
+                <td>{{ outfit.name }}</td>
+                <td>{{ outfit.picture }}</td>
+                <td>
+                    <a href="{{ path('admin_outfits_edit', {'id': outfit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_outfits_new') }}">Create new</a>
+    <a href="{{ path('admin_index') }}">Home admin</a>
 {% endblock %}
-
