@@ -1,60 +1,85 @@
 <?php
 
-
 namespace App\Controller;
 
-use App\Entity\ASavoir;
 use App\Entity\Outfits;
-use App\Entity\Social;
+use App\Form\OutfitsType;
+use App\Repository\OutfitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class HomeController
- *
- * @Route("/outfits", name="outfits_")
+ * @Route("/adminOutfits", name="admin_")
  */
 class OutfitsController extends AbstractController
 {
     /**
-     * @return Response
-     *
-     * @Route ("", name="index")
+     * @Route("/", name="outfits_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(OutfitsRepository $outfitsRepository): Response
     {
+        return $this->render('outfits/index.html.twig', [
+            'outfits' => $outfitsRepository->findAll(),
+        ]);
+    }
 
-        $outfits = $this->getDoctrine()
-            ->getRepository(Outfits::class)
-            ->findAll();
+    /**
+     * @Route("/new", name="outfits_new", methods={"GET","POST"})
+     */
+    public function new(Request $request): Response
+    {
+        $outfit = new Outfits();
+        $form = $this->createForm(OutfitsType::class, $outfit);
+        $form->handleRequest($request);
 
-        if (!$outfits) {
-            throw $this->createNotFoundException(
-                'No text found in outfits table.'
-            );
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($outfit);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('outfits_index');
         }
 
-        $aSavoir = $this->getDoctrine()
-            ->getRepository(ASavoir::class)
-            ->findAll();
+        return $this->render('outfits/new.html.twig', [
+            'outfit' => $outfit,
+            'form' => $form->createView(),
+        ]);
+    }
 
-        if (!$aSavoir) {
-            throw $this->createNotFoundException(
-                'No text found in who are us table.'
-            );
+
+    /**
+     * @Route("/{id}/edit", name="outfits_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Outfits $outfit): Response
+    {
+        $form = $this->createForm(OutfitsType::class, $outfit);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('outfits_index');
         }
 
-        $social = $this->getDoctrine()
-            ->getRepository(Social::class)
-            ->findAll();
+        return $this->render('outfits/edit.html.twig', [
+            'outfit' => $outfit,
+            'form' => $form->createView(),
+        ]);
+    }
 
-        if (!$social) {
-            throw $this->createNotFoundException(
-                'No text found in who are us table.'
-            );
+    /**
+     * @Route("/{id}", name="outfits_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, Outfits $outfit): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$outfit->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($outfit);
+            $entityManager->flush();
         }
 
-        return $this->render('outfits/index.html.twig', ['outfits' => $outfits, 'aSavoir' => $aSavoir, 'social' => $social]);
+        return $this->redirectToRoute('outfits_index');
     }
 }
