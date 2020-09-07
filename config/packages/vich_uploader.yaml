@@ -2,9 +2,7 @@ vich_uploader:
   db_driver: orm
 
   mappings:
-    outfits:
+    outfit_file:
       uri_prefix: /uploads/outfit
       upload_destination: '%kernel.project_dir%/public/outfit/'
       namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
-        delete_on_update: true
-        delete_on_remove: true
