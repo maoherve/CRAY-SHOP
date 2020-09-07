@@ -1,3 +1,21 @@
-body {
-    background-color: lightgray;
+@import "vars";
+@import "~bootstrap/scss/bootstrap";
+@import "footer";
+@import "outfits";
+@import "admin";
+
+
+
+*{
+
+    margin:0;
+
+    padding:0;
+
 }
+
+body {
+    background-color: $secondary-color;
+}
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<title>WhoAreUs index</title>
+
+{% block body %}
+    <h1>WhoAreUs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Text</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for who_are_u in who_areuses %}
+            <tr>
+                <td>{{ who_are_u.id }}</td>
+                <td>{{ who_are_u.title }}</td>
+                <td>{{ who_are_u.text }}</td>
+                <td>
+                    <a href="{{ path('who_are_us_edit', {'id': who_are_u.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('who_are_us_new') }}">Create new</a>
+    <a href="{{ path('admin_index') }}">Home admin</a>
+{% endblock %}

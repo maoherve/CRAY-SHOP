@@ -1,0 +1,11 @@
+<div class="container">
+    {% for text in urPolicy %}
+        <h2 class="mt-5">
+            {{ text.title }}
+        </h2>
+
+        <p>
+            {{ text.text }}
+        </p>
+    {% endfor %}
+</div>

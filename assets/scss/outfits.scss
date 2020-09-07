@@ -1,0 +1,16 @@
+.outfitcontainer {
+  margin-left: 30%;
+}
+
+
+@media screen and (max-width: 800px) {
+  .outfitcontainer {
+    width: 100%;
+    margin-left: 1%;
+
+  }
+  .outfitcard {
+    width:90%;
+    background-color: #8959A8;
+  }
+}
