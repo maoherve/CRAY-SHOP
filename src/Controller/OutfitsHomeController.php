@@ -29,12 +29,6 @@ class OutfitsHomeController extends AbstractController
             ->getRepository(Outfits::class)
             ->findAll();
 
-        if (!$outfits) {
-            throw $this->createNotFoundException(
-                'No text found in outfits table.'
-            );
-        }
-
         $aSavoir = $this->getDoctrine()
             ->getRepository(ASavoir::class)
             ->findAll();

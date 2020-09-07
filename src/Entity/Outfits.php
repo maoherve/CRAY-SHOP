@@ -26,10 +26,27 @@ class Outfits
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $description;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
 
     /**
-     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
      *
      * @var File|null
      */
@@ -41,14 +58,6 @@ class Outfits
      * @var string|null
      */
     private $imageName;
-
-    /**
-     * @ORM\Column(type="integer")
-     *
-     * @var int|null
-     */
-    private $imageSize;
-
 
     /**
      * @param File|UploadedFile|null $imageFile
@@ -77,64 +86,5 @@ class Outfits
     public function getImageName(): ?string
     {
         return $this->imageName;
-    }
-
-    public function setImageSize(?int $imageSize): void
-    {
-        $this->imageSize = $imageSize;
-    }
-
-    public function getImageSize(): ?int
-    {
-        return $this->imageSize;
-    }
-
-    public
-    function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public
-    function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public
-    function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-
-    public
-    function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public
-    function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-
-    public
-    function setPictureFile(File $picture = null): ?Outfits
-    {
-        $this->pictureFile = $picture;
-        return $this;
-    }
-
-    public
-    function getPictureFile(): ?File
-    {
-        return $this->pictureFile;
     }
 }
