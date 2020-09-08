@@ -1,10 +1,13 @@
 <div class="outfitcontainer container">
     {% for outfit in outfits %}
         <div class="outfitcard card col-5 mt-5">
-            <img class="card-img-top" src="{{ asset('build/images/{{ outfit.picture }}') }}" alt="{{ outfit.name }}">
+            <img src="{{ vich_uploader_asset (outfit, 'imageFile', 'App\\Entity\\Outfits') }}" alt="image">
+
             <div class="card-body">
-                <p class="card-text">{{ outfit.name }} : Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p class="card-text">{{ outfit.description }}</p>
             </div>
         </div>
+    {% else %}
+        <div class="card-body">Pas de collection disponible !</div>
     {% endfor %}
 </div>

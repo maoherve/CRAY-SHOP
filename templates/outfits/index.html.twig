@@ -9,17 +9,15 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Picture</th>
-                <th>actions</th>
+                <th>Description</th>
+                <th>Nom de l'image</th>
             </tr>
         </thead>
         <tbody>
         {% for outfit in outfits %}
             <tr>
                 <td>{{ outfit.id }}</td>
-                <td>{{ outfit.name }}</td>
-                <td>{{ outfit.picture }}</td>
+                <td>{{ outfit.description }}</td>
                 <td>
                     <a href="{{ path('admin_outfits_edit', {'id': outfit.id}) }}">edit</a>
                 </td>
