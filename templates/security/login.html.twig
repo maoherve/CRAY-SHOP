@@ -1,0 +1,40 @@
+{% extends 'adminLayout.html.twig' %}
+{% block main %}
+    <section class="login mt-5 container">
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3 mt-5">
+                    {% if is_granted("ROLE_ADMIN") %}
+                        <p>Vous êtes déjà connecté en tant qu'administrateur</p>
+                    {%elseif is_granted("ROLE_USER")%}
+                        <p>Vous êtes déjà connecté en tant qu'utilisateur</p>
+                    {%endif%}
+                </div>
+            {% endif %}
+
+            {% if not app.user %}
+            <h1 class="h3 mb-3 mt-4">Veuillez vous connecter :</h1>
+
+            <label for="inputUsername">Nom d'utilisateur</label>
+            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="login-username form-control" required autofocus>
+
+            <label class="mt-2" for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+
+            <button class="btn btn-primary mt-3 mb-3" type="submit">
+                Se connecter
+            </button>
+        </form>
+        {% endif %}
+
+
+    </section>
+{% endblock %}
