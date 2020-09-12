@@ -51,4 +51,34 @@ class OutfitsHomeController extends AbstractController
 
         return $this->render('outfitsHome/index.html.twig', ['outfits' => $outfits, 'aSavoir' => $aSavoir, 'social' => $social]);
     }
+
+    /**
+     *
+     * @param string $slug The slugger
+     * @Route("outfitDetails/{slug<^[0-9]+$>}", defaults={"slug" = null}, name="outfitDetails")
+     * @return Response
+     */
+    public function outfitDetails(?string $slug):Response
+    {
+        if (!$slug) {
+            throw $this
+                ->createNotFoundException('No slug has been sent to find a program in program\'s table.');
+        }
+
+        $outfit = $this->getDoctrine()
+            ->getRepository(Outfits::class)
+            ->findOneBy(['id' => $slug]);
+        if (!$outfit) {
+            throw $this->createNotFoundException(
+                'No program with '.$slug.' title, found in outfit\'s table.'
+            );
+        }
+
+        return $this->render('outfitsHome/outfit/outfitDetails.html.twig', [
+            'outfit' => $outfit,
+            'id'  => $slug,
+        ]);
+    }
 }
+
+
