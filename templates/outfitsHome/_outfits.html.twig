@@ -4,8 +4,7 @@
             <img class="card-img-top" src="{{ vich_uploader_asset (outfit, 'imageFile', 'App\\Entity\\Outfits') }}" alt="image">
             <div class="card-body">
                 <p class="card-text">{{ outfit.description }}</p>
-                <a href="{{ path('outfits_Details') }}" class="btn btn-primary">Voir !</a>
-
+                <a href="{{ path('outfits_Details', {id: outfit.id}) }}" class="btn btn-primary">Voir !</a>
             </div>
         </div>
     {% else %}
