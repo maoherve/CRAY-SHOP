@@ -1,9 +1,9 @@
 <div class="outfitcontainer container col-5">
-    {% for outfit in outfits %}
+    {% for details in outfit%}
         <div class="card mt-5" style="width:400px">
             <img class="card-img-top" src="{{ vich_uploader_asset (outfit, 'imageFile', 'App\\Entity\\Outfits') }}" alt="image">
             <div class="card-body">
-                <p class="card-text">{{ outfit.description }}</p>
+                <p class="card-text">{{ details.description }}</p>
             </div>
         </div>
     {% else %}

@@ -55,14 +55,14 @@ class OutfitsHomeController extends AbstractController
     /**
      *
      * @param string $slug The slugger
-     * @Route("outfitDetails/{slug<^[0-9]+$>}", defaults={"slug" = null}, name="outfitDetails")
+     * @Route("outfitDetails/{slug<^[a-z0-9-]+$>}", defaults={"slug" = null}, name="Details")
      * @return Response
      */
     public function outfitDetails(?string $slug):Response
     {
         if (!$slug) {
             throw $this
-                ->createNotFoundException('No slug has been sent to find a program in program\'s table.');
+                ->createNotFoundException('No slug has been sent to find a outfit in outfit\'s table.');
         }
 
         $outfit = $this->getDoctrine()
