@@ -51,4 +51,17 @@ class OutfitsHomeController extends AbstractController
 
         return $this->render('outfitsHome/index.html.twig', ['outfits' => $outfits, 'aSavoir' => $aSavoir, 'social' => $social]);
     }
+
+
+    /**
+     * @Route("/outfitDetails/{id}", name="Details")
+     * @return Response
+     */
+    public function show(int $id): Response
+    {
+        $outfit = $this->getDoctrine()->getRepository(Outfits::class)->find($id);
+        return $this->render('outfitsHome/outfit/outfitDetails.html.twig', [
+            'outfit' => $outfit,]);
+    }
 }
+
