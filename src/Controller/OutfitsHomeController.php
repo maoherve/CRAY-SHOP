@@ -60,8 +60,29 @@ class OutfitsHomeController extends AbstractController
     public function show(int $id): Response
     {
         $outfit = $this->getDoctrine()->getRepository(Outfits::class)->find($id);
+
+        $aSavoir = $this->getDoctrine()
+            ->getRepository(ASavoir::class)
+            ->findAll();
+
+        if (!$aSavoir) {
+            throw $this->createNotFoundException(
+                'No text found in who are us table.'
+            );
+        }
+
+        $social = $this->getDoctrine()
+            ->getRepository(Social::class)
+            ->findAll();
+
+        if (!$social) {
+            throw $this->createNotFoundException(
+                'No text found in who are us table.'
+            );
+        }
+
         return $this->render('outfitsHome/outfit/outfitDetails.html.twig', [
-            'outfit' => $outfit,]);
+            'outfit' => $outfit, 'aSavoir' => $aSavoir, 'social' => $social]);
     }
 }
 
