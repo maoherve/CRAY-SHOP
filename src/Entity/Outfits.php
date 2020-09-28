@@ -110,6 +110,7 @@ class Outfits
         return $this;
     }
 
+
     public function getSize(): ?string
     {
         return $this->size;
