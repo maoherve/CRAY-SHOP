@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\ASavoir;
+use App\Entity\Social;
 use App\Repository\OutfitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,6 +17,24 @@ class CartController extends AbstractController
      */
     public function index(SessionInterface $session, OutfitsRepository $outfitsRepository)
     {
+
+        $aSavoir = $this->getDoctrine()
+            ->getRepository(ASavoir::class)
+            ->findAll();
+        if (!$aSavoir) {
+            throw $this->createNotFoundException(
+                'No text found in who are us table.'
+            );
+        }
+        $social = $this->getDoctrine()
+            ->getRepository(Social::class)
+            ->findAll();
+
+        if (!$social) {
+            throw $this->createNotFoundException(
+                'No text found in who are us table.'
+            );
+        }
         $cart = $session->get('cart', []);
 
         $cartWithData = [];
@@ -26,7 +46,9 @@ class CartController extends AbstractController
             ];
         }
         return $this->render('cart/index.html.twig', [
-            'outfit' => $cartWithData
+            'outfit' => $cartWithData,
+            'aSavoir' => $aSavoir,
+            'social' => $social
         ]);
     }
 
