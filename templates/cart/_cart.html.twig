@@ -17,10 +17,10 @@
             {% for item in outfit %}
                 <tr>
                     <th>{{ item.outfit.description }}</th>
-                    <th>test</th>
+                    <th>{{ item.outfit.price }}</th>
                     <!--<th>item.product.price</th>-->
                     <th>{{ item.quantity }}</th>
-                    <th>test</th>
+                    <th>{{ item.outfit.price * item.quantity }}</th>
                     <!--<tr>item.product.price * item.quantity</tr>-->
                     <th>
                         <a href="{{ path('cart_remove', {'id': item.outfit.id}) }}" class="btn btn-danger btn-sm">
