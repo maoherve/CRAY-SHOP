@@ -39,9 +39,9 @@ class CartController extends AbstractController
 
         $total = 0;
 
-        foreach ($cartWithData as $outfit) {
-            $totalOutfit = $outfit['outfit']->getPrice() * $outfit['quantity'];
-            $total = $totalOutfit;
+        foreach ($cartWithData as $item) {
+            $totalOutfit = $item['outfit']->getPrice() * $item['quantity'];
+            $total += $totalOutfit;
         }
 
         return $this->render('cart/index.html.twig', [
