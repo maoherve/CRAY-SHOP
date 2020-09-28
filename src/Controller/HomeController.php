@@ -28,42 +28,19 @@ class HomeController extends AbstractController
             ->getRepository(WhoAreUs::class)
             ->findAll();
 
-        if (!$whoAreUS) {
-            throw $this->createNotFoundException(
-                'No text found in who are us table.'
-            );
-        }
 
         $urPolicy = $this->getDoctrine()
             ->getRepository(UrPolicy::class)
             ->findAll();
-
-        if (!$urPolicy) {
-            throw $this->createNotFoundException(
-                'No text found in who are us table.'
-            );
-        }
 
 
         $aSavoir = $this->getDoctrine()
             ->getRepository(ASavoir::class)
             ->findAll();
 
-        if (!$aSavoir) {
-            throw $this->createNotFoundException(
-                'No text found in who are us table.'
-            );
-        }
-
         $social = $this->getDoctrine()
             ->getRepository(Social::class)
             ->findAll();
-
-        if (!$social) {
-            throw $this->createNotFoundException(
-                'No text found in who are us table.'
-            );
-        }
 
 
 
