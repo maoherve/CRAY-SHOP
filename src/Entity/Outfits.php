@@ -60,6 +60,13 @@ class Outfits
     private $imageName;
 
     /**
+     * @ORM\Column(type="float")
+     */
+    private $price;
+
+
+
+    /**
      * @param File|UploadedFile|null $imageFile
      */
     public function setImageFile(?File $imageFile = null): void
@@ -86,5 +93,17 @@ class Outfits
     public function getImageName(): ?string
     {
         return $this->imageName;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
     }
 }

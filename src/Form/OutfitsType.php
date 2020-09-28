@@ -16,6 +16,7 @@ class OutfitsType extends AbstractType
         $builder
             ->add('description')
             ->add('image_name')
+            ->add('price')
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
                 'download_label' => false,
@@ -24,6 +25,8 @@ class OutfitsType extends AbstractType
                 'image_uri' => false,
                 'asset_helper' => false,
             ])
+            ->add('price')
+            ->add('size')
         ;
     }
 
