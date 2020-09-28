@@ -64,10 +64,7 @@ class Outfits
      */
     private $price;
 
-    /**
-     * @ORM\Column(type="string", length=3)
-     */
-    private $size;
+
 
     /**
      * @param File|UploadedFile|null $imageFile
@@ -106,19 +103,6 @@ class Outfits
     public function setPrice(float $price): self
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
-
-    public function setSize(string $size): self
-    {
-        $this->size = $size;
 
         return $this;
     }
