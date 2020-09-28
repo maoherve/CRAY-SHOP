@@ -54,24 +54,15 @@ class OutfitsHomeController extends AbstractController
             ->getRepository(ASavoir::class)
             ->findAll();
 
-        if (!$aSavoir) {
-            throw $this->createNotFoundException(
-                'No text found in who are us table.'
-            );
-        }
-
         $social = $this->getDoctrine()
             ->getRepository(Social::class)
             ->findAll();
 
-        if (!$social) {
-            throw $this->createNotFoundException(
-                'No text found in who are us table.'
-            );
-        }
 
         return $this->render('outfitsHome/outfit/outfitDetails.html.twig', [
             'outfit' => $outfit, 'aSavoir' => $aSavoir, 'social' => $social]);
     }
 }
+
+
 

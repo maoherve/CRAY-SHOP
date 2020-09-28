@@ -24,6 +24,8 @@ class OutfitsType extends AbstractType
                 'image_uri' => false,
                 'asset_helper' => false,
             ])
+            ->add('price')
+            ->add('size')
         ;
     }
 
