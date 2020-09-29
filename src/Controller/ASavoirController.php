@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/asavoir", name="asavoir_")
+ * @Route("/asavoir", name="a_savoir_")
  */
 class ASavoirController extends AbstractController
 {
