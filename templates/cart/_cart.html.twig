@@ -35,17 +35,16 @@
             </tr>
             </tfoot>
         </table>
+        <script src="https://js.stripe.com/v3/"></script>
 
-        {% block javascripts %}
-            <script src="https://js.stripe.com/v3/"></script>
-        {% endblock %}
         <form action="" method="post" id="payment-form" class="ml-5">
             <div class="form-row ml-3">
                 <label for="card-element">
                     Carte de crédit
                 </label>
                 <div id="card-element">
-xD                </div>
+                    <!-- A Stripe Element will be inserted here. -->
+                </div>
 
                 <!-- Used to display Element errors. -->
                 <div id="card-errors" role="alert"></div>
