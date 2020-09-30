@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <script src="https://js.stripe.com/v3/"></script>
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -12,6 +13,7 @@
 <body>
 {% block body %}
     {% for category, messages in app.flashes %}
+
     {% endfor %}
 {% endblock %}
 {% block javascripts %}
