@@ -1,8 +1,3 @@
-// Set your publishable key: remember to change this to your live publishable key in production
-// See your keys here: https://dashboard.stripe.com/account/apikeys
-const stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
-const elements = stripe.elements();
-
 // Custom styling can be passed to options when creating an Element.
 const style = {
     base: {
@@ -13,24 +8,23 @@ const style = {
 };
 
 // Create an instance of the card Element.
-const card = elements.create('card', {style: style});
+const card = elements.create('card', {style});
 
 // Add an instance of the card Element into the `card-element` <div>.
 card.mount('#card-element');
-
 // Create a token or display an error when the form is submitted.
 const form = document.getElementById('payment-form');
-form.addEventListener('submit', function(event) {
+form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    stripe.createToken(card).then(function(result) {
-        if (result.error) {
-            // Inform the customer that there was an error.
-            var errorElement = document.getElementById('card-errors');
-            errorElement.textContent = result.error.message;
-        } else {
-            // Send the token to your server.
-            stripeTokenHandler(result.token);
-        }
-    });
+    const {token, error} = await stripe.createToken(card);
+
+    if (error) {
+        // Inform the customer that there was an error.
+        const errorElement = document.getElementById('card-errors');
+        errorElement.textContent = error.message;
+    } else {
+        // Send the token to your server.
+        stripeTokenHandler(token);
+    }
 });
