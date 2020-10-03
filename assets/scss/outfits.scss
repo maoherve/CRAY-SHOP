@@ -1,16 +1,19 @@
-.outfitcontainer {
-  margin-left: 20%;
+@import "vars";
+
+.btnOutfit {
+  background-color: $sweet-color;
 }
 
+.outfitCard {
+  background-color: $other-color;
+}
 
 @media screen and (max-width: 800px) {
   .outfitcontainer {
-    width: 100%;
-    margin-left: 1%;
+
 
   }
-  .outfitcard {
-    width:90%;
-    background-color: #8959A8;
+  .outfitCard {
+
   }
 }
