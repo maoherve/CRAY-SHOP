@@ -3,6 +3,7 @@
 @import "footer";
 @import "outfits";
 @import "admin";
+@import "navbar";
 
 
 
@@ -15,10 +16,10 @@
 }
 
 body {
-    background-color: $secondary-color;
+    background-color: $primary-color;
 }
 
 h1, h2, li, ul, h6, p, a {
-    color: $primary-color;
+    color: $secondary-color;
 }
 
