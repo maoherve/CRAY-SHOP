@@ -21,9 +21,9 @@
                     <th>{{ item.quantity }}</th>
                     <th>{{ item.outfit.price * item.quantity }}€</th>
                     <th><i class="fas fa-trash-alt">
-                       <a href="{{ path('cart_remove', {'id': item.outfit.id}) }}" class="btn btn-danger">
+                            <a href="{{ path('cart_remove', {'id': item.outfit.id}) }}" class="btn btn-danger">
                             </a>
-                            </i>
+                        </i>
                     </th>
                 </tr>
             {% endfor %}
@@ -36,7 +36,7 @@
             </tfoot>
         </table>
         <form action="" method="post" id="payment-form" class="ml-5">
-            <div class="form-row ml-3">
+            <div class="form-row">
                 <label for="card-element">
                     Carte de crédit
                 </label>
