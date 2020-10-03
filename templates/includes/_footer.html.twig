@@ -1,7 +1,8 @@
-<footer class="page-footer mt-5">
+<div id="page-content"></div>
 
+<footer id="sticky-footer" class="py-4">
 
-    <div class=" footerCray container container-fluid text-center text-md-left">
+    <div id="page-content" class="container container-fluid text-center text-md-left">
 
         <div class="row mt-3">
 
@@ -10,7 +11,7 @@
                 <h6 class="text-uppercase font-weight-bold">A savoir</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 {% for text in aSavoir %}
-                <p>{{ text.text }}</p>
+                    <p>{{ text.text }}</p>
                 {% endfor %}
 
             </div>
@@ -20,15 +21,15 @@
                 <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 {% for social in social %}
-                <p>
-                    <a href="{{ social.facebook }}" target = "_blank">Facebook</a>
-                </p>
-                <p>
-                    <a href="{{ social.instagram }}" target = "_blank">Instagram</a>
-                </p>
-                <p>
-                    <a href="{{ social.linkedin }}" target = "_blank">Linkedin</a>
-                </p>
+                    <p>
+                        <a href="{{ social.facebook }}" target = "_blank">Facebook</a>
+                    </p>
+                    <p>
+                        <a href="{{ social.instagram }}" target = "_blank">Instagram</a>
+                    </p>
+                    <p>
+                        <a href="{{ social.linkedin }}" target = "_blank">Linkedin</a>
+                    </p>
                 {% endfor %}
 
             </div>
