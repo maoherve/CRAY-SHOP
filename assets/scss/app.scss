@@ -1,9 +1,10 @@
-@import "vars";
 @import "~bootstrap/scss/bootstrap";
+@import "vars";
+@import "navbar";
 @import "footer";
 @import "outfits";
 @import "admin";
-@import "navbar";
+
 
 
 
@@ -16,7 +17,7 @@ body {
     background-color: $primary-color;
 }
 
-h1, h2, li, ul, h6, p, a {
+h1, h2, h6, p, li, ul, a {
     color: $secondary-color;
 }
 

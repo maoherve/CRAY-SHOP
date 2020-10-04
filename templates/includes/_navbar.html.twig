@@ -7,24 +7,24 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('home_index') }}">Menu <span class="sr-only">(current)</span></a>
+                <a class="textNavbar nav-link" href="{{ path('home_index') }}">Menu <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('outfits_index') }}">Collections</a>
+                <a class="textNavbar nav-link" href="{{ path('outfits_index') }}">Collections</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('cart_index') }}">Panier</a>
+                <a class="textNavbar nav-link" href="{{ path('cart_index') }}">Panier</a>
             </li>
             {% if app.user %}
                 <li class="nav-item">
                     {% if is_granted("ROLE_ADMIN") %}
-                        <a class="navbar-link nav-link" href="{{ path('admin_index') }}">Administration</a>
+                        <a class="textNavbar navbar-link nav-link" href="{{ path('admin_index') }}">Administration</a>
                     {% endif %}
                 </li>
-                <li class=" textNavbar nav-item">
-                    <a class="navbar-link nav-link" href="{{ path('app_logout') }}"> Se déconnecter</a>
+                <li class="nav-item">
+                    <a class="textNavbar navbar-link nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
                 </li>
             {% endif %}
         </ul>
