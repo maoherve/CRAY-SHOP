@@ -6,8 +6,7 @@
             <img class="card-img-top" src="{{ vich_uploader_asset (outfit, 'imageFile', 'App\\Entity\\Outfits') }}" alt="image">
             <div class="card-body">
                 <p class="card-text">{{ outfit.description }}</p>
-                <p class="card-text">{{ outfit.price }}€n</p>
-
+                <p class="card-text">{{ outfit.price }}€</p>
                 <a href="{{ path('cart_add', {'id': outfit.id}) }}" class="btn btn-primary">Ajouter au panier</a>
             </div>
         </div>
