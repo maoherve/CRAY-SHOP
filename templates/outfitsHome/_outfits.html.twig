@@ -1,6 +1,6 @@
-<div class="container-fluid mb-5">
+<div class="outfitcontainer container-fluid mb-5">
     <div class="row">
-        <div class="outfitcontainer container col-6">
+        <div class="container col-6">
             {% for outfit in outfits %}
                 <div class="outfitCard card mt-5">
                     <img class="card-img" src="{{ vich_uploader_asset (outfit, 'imageFile', 'App\\Entity\\Outfits') }}" alt="image">

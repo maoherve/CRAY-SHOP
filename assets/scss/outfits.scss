@@ -6,12 +6,17 @@
 
 .outfitCard {
   background-color: $other-color;
+  border-radius: 0.25rem !important;
 }
+
+.outfitContainer {
+
+}
+
 
 @media screen and (max-width: 800px) {
   .outfitcontainer {
-
-
+    width: 100%;
   }
   .outfitCard {
 
