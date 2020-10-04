@@ -8,27 +8,27 @@
 
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
-                <h6 class="text-uppercase font-weight-bold">A savoir</h6>
+                <h6 class="textFooter text-uppercase font-weight-bold">A savoir</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 {% for text in aSavoir %}
-                    <p>{{ text.text }}</p>
+                    <p class="textFooter">{{ text.text }}</p>
                 {% endfor %}
 
             </div>
 
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
-                <h6 class="text-uppercase font-weight-bold">Liens utiles</h6>
+                <h6 class="textFooter text-uppercase font-weight-bold">Liens utiles</h6>
                 <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 {% for social in social %}
                     <p>
-                        <a href="{{ social.facebook }}" target = "_blank">Facebook</a>
+                        <a class="textFooter" href="{{ social.facebook }}" target = "_blank">Facebook</a>
                     </p>
                     <p>
-                        <a href="{{ social.instagram }}" target = "_blank">Instagram</a>
+                        <a class="textFooter" href="{{ social.instagram }}" target = "_blank">Instagram</a>
                     </p>
                     <p>
-                        <a href="{{ social.linkedin }}" target = "_blank">Linkedin</a>
+                        <a class="textFooter" href="{{ social.linkedin }}" target = "_blank">Linkedin</a>
                     </p>
                 {% endfor %}
 
