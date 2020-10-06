@@ -4,18 +4,7 @@
 @import "footer";
 @import "outfits";
 @import "admin";
-
-
-/* Blue outline on focus */
-.StripeElement--focus {
-    border-color: #80BDFF;
-}
-/* Can't see what I type without this */
-#card-number.form-control,
-#card-cvc.form-control,
-#card-exp.form-control {
-    display:block;
-}
+@import "cart";
 
 
 *{
@@ -29,4 +18,10 @@ body {
 
 h1, h2, h6, p, li, ul, a {
     color: $secondary-color;
+}
+
+.card-element{
+    background-color: black;
+    font-size: 64px;
+    margin: 100px;
 }
