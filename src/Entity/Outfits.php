@@ -64,7 +64,20 @@ class Outfits
      */
     private $price;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $size;
 
+    public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    public function setSize(?string $size): void
+    {
+        $this->imageName = $size;
+    }
 
     /**
      * @param File|UploadedFile|null $imageFile

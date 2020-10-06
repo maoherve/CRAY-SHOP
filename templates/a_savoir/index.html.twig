@@ -19,7 +19,7 @@
                 <td>{{ a_savoir.id }}</td>
                 <td>{{ a_savoir.text }}</td>
                 <td>
-                    <a href="{{ path('asavoir_edit', {'id': a_savoir.id}) }}">edit</a>
+                    <a href="{{ path('a_savoir_edit', {'id': a_savoir.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -30,6 +30,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('asavoir_new') }}">Create new</a>
+    <a href="{{ path('a_savoir_new') }}">Create new</a>
     <a href="{{ path('admin_index') }}">Home admin</a>
 {% endblock %}

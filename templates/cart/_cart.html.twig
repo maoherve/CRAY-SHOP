@@ -1,9 +1,7 @@
-{% block title %}Panier{% endblock %}
-
 {% block body %}
 
     {% if outfit | length > 0 %}
-        <table class="table">
+        <table class="table mt-5">
             <thead>
             <tr>
                 <th>Produit</th>
@@ -17,15 +15,13 @@
             {% for item in outfit %}
                 <tr>
                     <th>{{ item.outfit.description }}</th>
-                    <th>{{ item.outfit.price }}</th>
-                    <!--<th>item.product.price</th>-->
+                    <th>{{ item.outfit.price }}€</th>
                     <th>{{ item.quantity }}</th>
-                    <th>{{ item.outfit.price * item.quantity }}</th>
-                    <!--<tr>item.product.price * item.quantity</tr>-->
-                    <th>
-                        <a href="{{ path('cart_remove', {'id': item.outfit.id}) }}" class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash"></i>
-                        </a>
+                    <th>{{ item.outfit.price * item.quantity }}€</th>
+                    <th><i class="fas fa-trash-alt">
+                            <a href="{{ path('cart_remove', {'id': item.outfit.id}) }}" class="btn btn-danger">
+                            </a>
+                        </i>
                     </th>
                 </tr>
             {% endfor %}
@@ -33,14 +29,59 @@
             <tfoot>
             <tr>
                 <td colspan="3" class="text-right">Total :</td>
-                <td>a faire</td>
+                <td>{{ total }}€</td>
             </tr>
             </tfoot>
         </table>
+        <div class="container-fluid">
+            <h1 class="mt-5">Paiment</h1>
+            <div id="card-errors" role="alert"></div>
+            <div class="card">
+                <div class="card-body">
+                    <form id="payment-form">
+                        <div class="form-group">
+                            <label for="name">Nom / Prénom</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">A</span>
+                                <input type="text" class="form-control" id="name">
+                                <span class="input-group-addon">B</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-number">Numéro de carte</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">C</span>
+                                <span id="card-number" class="form-control">
+              <!-- Stripe Card Element -->
+            </span>
+                                <span class="input-group-addon">D</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvc">CVC</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">E</span>
+                                <span id="card-cvc" class="form-control">
+              <!-- Stripe CVC Element -->
+            </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-exp">Expiration</label>
+                            <div class="input-group">
+            <span id="card-exp" class="form-control">
+              <!-- Stripe Card Expiry Element -->
+            </span>
+                                <span class="input-group-addon">F</span>
+                            </div>
+                        </div>
+                        <button id="payment-submit" class="btn btn-primary">Payer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     {% else %}
         <p>Le panier est vide !</p>
     {% endif %}
-
-
-
 {% endblock %}
