@@ -6,6 +6,16 @@
 @import "admin";
 
 
+/* Blue outline on focus */
+.StripeElement--focus {
+    border-color: #80BDFF;
+}
+/* Can't see what I type without this */
+#card-number.form-control,
+#card-cvc.form-control,
+#card-exp.form-control {
+    display:block;
+}
 
 
 *{
@@ -20,4 +30,3 @@ body {
 h1, h2, h6, p, li, ul, a {
     color: $secondary-color;
 }
-
