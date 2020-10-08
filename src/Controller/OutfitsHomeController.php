@@ -5,6 +5,7 @@ namespace App\Controller;
 
 use App\Entity\ASavoir;
 use App\Entity\Outfits;
+use App\Entity\Size;
 use App\Entity\Social;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,7 +49,11 @@ class OutfitsHomeController extends AbstractController
      */
     public function show(int $id): Response
     {
-        $outfit = $this->getDoctrine()->getRepository(Outfits::class)->find($id);
+        $outfit = $this->getDoctrine()
+            ->getRepository(Outfits::class)
+            ->find($id);
+
+
 
         $aSavoir = $this->getDoctrine()
             ->getRepository(ASavoir::class)
@@ -57,6 +62,8 @@ class OutfitsHomeController extends AbstractController
         $social = $this->getDoctrine()
             ->getRepository(Social::class)
             ->findAll();
+
+
 
 
         return $this->render('outfitsHome/outfit/outfitDetails.html.twig', [

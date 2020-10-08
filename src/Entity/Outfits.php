@@ -4,6 +4,8 @@
 namespace App\Entity;
 
 use App\Repository\OutfitsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -65,19 +67,20 @@ class Outfits
     private $price;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
+     */
+    private $color;
+
+    /**
+     * @ORM\Column(type="string", length=255)
      */
     private $size;
 
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $quantity;
 
-    public function setSize(?string $size): void
-    {
-        $this->imageName = $size;
-    }
 
     /**
      * @param File|UploadedFile|null $imageFile
@@ -116,6 +119,44 @@ class Outfits
     public function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+
+    public function getColor(): ?string
+    {
+        return $this->color;
+    }
+
+    public function setColor(string $color): self
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+
+    public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    public function setSize(string $size): self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?string
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(string $quantity): self
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }
