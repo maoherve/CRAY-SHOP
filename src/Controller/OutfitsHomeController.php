@@ -61,7 +61,6 @@ class OutfitsHomeController extends AbstractController
             ->findBy(['outfits' => $outfit]);
 
         $selectSize = new Declinaison();
-        $form = $this->createForm(SelectSizeType::class, $selectSize);
 
         $aSavoir = $this->getDoctrine()
             ->getRepository(ASavoir::class)
@@ -78,7 +77,6 @@ class OutfitsHomeController extends AbstractController
             'aSavoir' => $aSavoir,
             'social' => $social,
             'selectSize' => $selectSize,
-            'form' => $form->createView(),
             ]);
     }
 }

@@ -10,11 +10,6 @@
                 <p class="card-text">Quantité: {{ outfit.quantity }}</p>
 
 
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <button class="btn">{{ button_label|default('Save') }}</button>
-                {{ form_end(form) }}
-
                     <select name="size" id="taille" required>
                     <option value="">Choisissez une taille</option>
                         {% for declinaison in declinaisons %}
