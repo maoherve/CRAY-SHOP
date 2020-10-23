@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\ASavoir;
+use App\Entity\Poster;
 use App\Entity\Social;
 use App\Entity\UrPolicy;
 use App\Entity\WhoAreUs;
@@ -42,9 +43,13 @@ class HomeController extends AbstractController
             ->getRepository(Social::class)
             ->findAll();
 
+        $poster = $this->getDoctrine()
+            ->getRepository(Poster::class)
+            ->findAll();
+
 
 
         return $this->render('home/index.html.twig', ['whoAreUs' => $whoAreUS,
-            'urPolicy' => $urPolicy, 'aSavoir' => $aSavoir, 'social' => $social]);
+            'urPolicy' => $urPolicy, 'aSavoir' => $aSavoir, 'social' => $social, 'poster' => $poster ]);
     }
 }

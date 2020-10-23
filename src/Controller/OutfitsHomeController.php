@@ -4,9 +4,11 @@
 namespace App\Controller;
 
 use App\Entity\ASavoir;
+use App\Entity\Declinaison;
 use App\Entity\Outfits;
-use App\Entity\Size;
+use App\Entity\Poster;
 use App\Entity\Social;
+use App\Form\SelectSizeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -54,6 +56,12 @@ class OutfitsHomeController extends AbstractController
             ->find($id);
 
 
+        $declinaisons = $this->getDoctrine()
+            ->getRepository(Declinaison::class)
+            ->findBy(['outfits' => $outfit]);
+
+        $selectSize = new Declinaison();
+        $form = $this->createForm(SelectSizeType::class, $selectSize);
 
         $aSavoir = $this->getDoctrine()
             ->getRepository(ASavoir::class)
@@ -64,10 +72,14 @@ class OutfitsHomeController extends AbstractController
             ->findAll();
 
 
-
-
         return $this->render('outfitsHome/outfit/outfitDetails.html.twig', [
-            'outfit' => $outfit, 'aSavoir' => $aSavoir, 'social' => $social]);
+            'outfit' => $outfit,
+            'declinaisons' => $declinaisons,
+            'aSavoir' => $aSavoir,
+            'social' => $social,
+            'selectSize' => $selectSize,
+            'form' => $form->createView(),
+            ]);
     }
 }
 

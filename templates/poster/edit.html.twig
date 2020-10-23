@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit Poster</title>
+
+{% block body %}
+    <h1>Edit Poster</h1>
+
+    {{ include('poster/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('poster_index') }}">back to list</a>
+
+    {{ include('poster/_delete_form.html.twig') }}
+{% endblock %}
