@@ -1,4 +1,7 @@
 
 {% for poster in poster %}
-<img class="card-img" src="{{ vich_uploader_asset (poster, 'posterFile', 'App\\Entity\\Poster') }}" alt="image">
+    <div class="containerHome">
+        <img class="posterHome card-img" src="{{ vich_uploader_asset (poster, 'posterFile', 'App\\Entity\\Poster') }}" alt="image">
+
+    </div>
 {% endfor %}
