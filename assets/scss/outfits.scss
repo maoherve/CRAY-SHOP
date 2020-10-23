@@ -9,14 +9,19 @@
   border-radius: 0.25rem !important;
 }
 
-.testdtm {
+.outfitContainer {
   width: 100% !important;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
 }
 
 
 @media screen and (max-width: 800px) {
   .testdtm {
-    width: 100% !important;
   }
   .outfitCard {
 
