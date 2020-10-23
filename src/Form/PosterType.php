@@ -15,7 +15,7 @@ class PosterType extends AbstractType
     {
         $builder
             ->add('image')
-            // ...
+            ->add('poster_name')
             ->add('posterFile', VichImageType::class, [
                 'required' => false,
                 'download_label' => false,

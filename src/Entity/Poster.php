@@ -27,11 +27,28 @@ class Poster
     private $poster;
 
     /**
-     * @Vich\UploadableField(mapping="poster_file", fileNameProperty="poster")
+     * @Vich\UploadableField(mapping="product_image", fileNameProperty="posterName")
      * @var File
      */
     private $posterFile;
 
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @var string|null
+     */
+    private $posterName;
+
+    public function setPosterName(?string $posterName): void
+    {
+        $this->posterName = $posterName;
+    }
+
+    public function getPosterName(): ?string
+    {
+        return $this->posterName;
+    }
 
     /**
      * @param File|UploadedFile|null $posterFile
