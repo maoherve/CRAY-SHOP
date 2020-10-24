@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+{% extends 'adminlayout.html.twig' %}
 
-<title>WhoAreUs index</title>
+{% block header %}
+    {{ parent() }}
+{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>WhoAreUs index</h1>
 
     <table class="table">
