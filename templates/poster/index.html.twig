@@ -1,8 +1,13 @@
-<!DOCTYPE html>
+{% extends 'adminlayout.html.twig' %}
 
-<title>Poster index</title>
+{% block header %}
+    {{ parent() }}
+{% endblock %}
 
-{% block body %}
+
+{% block main %}
+    <title>Poster index</title>
+
     <h1>Poster index</h1>
 
     <table class="table">
@@ -32,4 +37,6 @@
     </table>
 
     <a href="{{ path('poster_new') }}">Create new</a>
+    <a href="{{ path('admin_index') }}">Home admin</a>
+
 {% endblock %}

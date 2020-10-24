@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+{% extends 'adminlayout.html.twig' %}
 
-<title>Social index</title>
+{% block header %}
+    {{ parent() }}
+{% endblock %}
 
-{% block adminBody %}
+{% block main %}
     <h1>Social index</h1>
 
     <table class="table">
