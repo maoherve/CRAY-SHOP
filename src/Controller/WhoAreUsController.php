@@ -20,7 +20,7 @@ class WhoAreUsController extends AbstractController
      */
     public function index(WhoAreUsRepository $whoAreUsRepository): Response
     {
-        return $this->render('who_are_us/index.html.twig', [
+        return $this->render('admin/who_are_us/index.html.twig', [
             'who_areuses' => $whoAreUsRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class WhoAreUsController extends AbstractController
             return $this->redirectToRoute('who_are_us_index');
         }
 
-        return $this->render('who_are_us/new.html.twig', [
+        return $this->render('admin/who_are_us/new.html.twig', [
             'who_are_u' => $whoAreU,
             'form' => $form->createView(),
         ]);
@@ -63,7 +63,7 @@ class WhoAreUsController extends AbstractController
             return $this->redirectToRoute('who_are_us_index');
         }
 
-        return $this->render('who_are_us/edit.html.twig', [
+        return $this->render('admin/who_are_us/edit.html.twig', [
             'who_are_u' => $whoAreU,
             'form' => $form->createView(),
         ]);

@@ -20,7 +20,7 @@ class PosterController extends AbstractController
      */
     public function index(PosterRepository $posterRepository): Response
     {
-        return $this->render('poster/index.html.twig', [
+        return $this->render('admin/poster/index.html.twig', [
             'posters' => $posterRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class PosterController extends AbstractController
             return $this->redirectToRoute('poster_index');
         }
 
-        return $this->render('poster/new.html.twig', [
+        return $this->render('admin/poster/new.html.twig', [
             'poster' => $poster,
             'form' => $form->createView(),
         ]);
@@ -72,7 +72,7 @@ class PosterController extends AbstractController
             return $this->redirectToRoute('poster_index');
         }
 
-        return $this->render('poster/edit.html.twig', [
+        return $this->render('admin/poster/edit.html.twig', [
             'poster' => $poster,
             'form' => $form->createView(),
         ]);

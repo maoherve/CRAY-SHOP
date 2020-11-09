@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit Declinaison</title>
+
+{% block body %}
+    <h1>Edit Declinaison</h1>
+
+    {{ include('admin/declinaison/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('declinaison_index') }}">back to list</a>
+
+    {{ include('admin/declinaison/_delete_form.html.twig') }}
+{% endblock %}

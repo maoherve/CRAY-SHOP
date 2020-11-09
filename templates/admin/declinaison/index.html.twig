@@ -1,0 +1,39 @@
+{% extends 'adminlayout.html.twig' %}
+
+{% block header %}
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>Declinaison index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Taille</th>
+                <th>Quantite</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for declinaison in declinaisons %}
+            <tr>
+                <td>{{ declinaison.id }}</td>
+                <td>{{ declinaison.taille }}</td>
+                <td>{{ declinaison.quantite }}</td>
+                <td>
+                    <a href="{{ path('declinaison_show', {'id': declinaison.id}) }}">show</a>
+                    <a href="{{ path('declinaison_edit', {'id': declinaison.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('declinaison_new') }}">Create new</a>
+{% endblock %}
