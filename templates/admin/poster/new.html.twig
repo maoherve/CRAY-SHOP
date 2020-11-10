@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+{% extends 'adminlayout.html.twig' %}
 
-<title>New Poster</title>
+{% block header %}
+    {{ parent() }}
+{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>Create new Poster</h1>
 
     {{ include('admin/poster/_form.html.twig') }}

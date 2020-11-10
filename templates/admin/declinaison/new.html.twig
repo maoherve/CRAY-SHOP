@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+{% extends 'adminlayout.html.twig' %}
 
-<title>New Declinaison</title>
+{% block header %}
+    {{ parent() }}
+{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>Create new Declinaison</h1>
 
     {{ include('admin/declinaison/_form.html.twig') }}

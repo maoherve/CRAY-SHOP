@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+{% extends 'adminlayout.html.twig' %}
 
-<title>New UrPolicy</title>
+{% block header %}
+    {{ parent() }}
+{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>Create new UrPolicy</h1>
 
     {{ include('admin/ur_policy/_form.html.twig') }}

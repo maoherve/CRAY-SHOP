@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+{% extends 'adminlayout.html.twig' %}
 
-<title>Edit Poster</title>
+{% block header %}
+    {{ parent() }}
+{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>Edit Poster</h1>
 
     {{ include('admin/poster/_form.html.twig', {'button_label': 'Update'}) }}

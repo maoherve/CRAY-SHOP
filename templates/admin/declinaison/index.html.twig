@@ -19,11 +19,10 @@
         <tbody>
         {% for declinaison in declinaisons %}
             <tr>
-                <td>{{ declinaison.id }}</td>
+                <td>{{ declinaison.outfits.id }}</td>
                 <td>{{ declinaison.taille }}</td>
                 <td>{{ declinaison.quantite }}</td>
                 <td>
-                    <a href="{{ path('declinaison_show', {'id': declinaison.id}) }}">show</a>
                     <a href="{{ path('declinaison_edit', {'id': declinaison.id}) }}">edit</a>
                 </td>
             </tr>

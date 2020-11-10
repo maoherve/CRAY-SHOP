@@ -43,7 +43,7 @@ class OutfitsController extends AbstractController
             $entityManager->persist($outfit);
             $entityManager->flush();
 
-            return $this->redirectToRoute('outfits_index');
+            return $this->redirectToRoute('admin_outfits_index');
         }
 
         return $this->render('admin/outfits/new.html.twig', [
@@ -68,7 +68,7 @@ class OutfitsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('outfits_index');
+            return $this->redirectToRoute('admin_outfits_index');
         }
 
         return $this->render('admin/outfits/edit.html.twig', [
@@ -88,6 +88,6 @@ class OutfitsController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('outfits_index');
+        return $this->redirectToRoute('admin_outfits_index');
     }
 }
