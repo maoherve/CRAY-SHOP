@@ -20,7 +20,7 @@ class UrPolicyController extends AbstractController
      */
     public function index(UrPolicyRepository $urPolicyRepository): Response
     {
-        return $this->render('ur_policy/index.html.twig', [
+        return $this->render('admin/ur_policy/index.html.twig', [
             'ur_policies' => $urPolicyRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class UrPolicyController extends AbstractController
             return $this->redirectToRoute('ur_policy_index');
         }
 
-        return $this->render('ur_policy/new.html.twig', [
+        return $this->render('admin/ur_policy/new.html.twig', [
             'ur_policy' => $urPolicy,
             'form' => $form->createView(),
         ]);
@@ -63,7 +63,7 @@ class UrPolicyController extends AbstractController
             return $this->redirectToRoute('ur_policy_index');
         }
 
-        return $this->render('ur_policy/edit.html.twig', [
+        return $this->render('admin/ur_policy/edit.html.twig', [
             'ur_policy' => $urPolicy,
             'form' => $form->createView(),
         ]);

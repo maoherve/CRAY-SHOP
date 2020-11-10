@@ -1,14 +1,12 @@
 <div class="container">
     {% for text in urPolicy %}
-        <h2 class="mt-5">
+        <h2 class="">
             {{ text.title }}
         </h2>
 
-        <p>
+        <p class="">
             {{ text.text }}
         </p>
-    {% else %}
-            <p>Pas de politique ici poto</p>
 
     {% endfor %}
 </div>

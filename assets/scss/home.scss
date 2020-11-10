@@ -1,0 +1,17 @@
+.posterHome {
+  width: 60%;
+
+}
+.containerHome, .containerHomePoster {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.containerHomePoster {
+  background: #0d0106;
+}
+

@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Declinaison;
+use App\Form\DeclinaisonType;
 use App\Entity\Outfits;
 use App\Form\OutfitsType;
 use App\Repository\OutfitsRepository;
@@ -20,13 +22,15 @@ class OutfitsController extends AbstractController
      */
     public function index(OutfitsRepository $outfitsRepository): Response
     {
-        return $this->render('outfits/index.html.twig', [
+        return $this->render('admin/outfits/index.html.twig', [
             'outfits' => $outfitsRepository->findAll(),
         ]);
     }
 
     /**
      * @Route("/new", name="outfits_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -39,10 +43,10 @@ class OutfitsController extends AbstractController
             $entityManager->persist($outfit);
             $entityManager->flush();
 
-            return $this->redirectToRoute('outfits_index');
+            return $this->redirectToRoute('admin_outfits_index');
         }
 
-        return $this->render('outfits/new.html.twig', [
+        return $this->render('admin/outfits/new.html.twig', [
             'outfit' => $outfit,
             'form' => $form->createView(),
         ]);
@@ -51,19 +55,23 @@ class OutfitsController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="outfits_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Outfits $outfit
+     * @return Response
      */
     public function edit(Request $request, Outfits $outfit): Response
     {
         $form = $this->createForm(OutfitsType::class, $outfit);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('outfits_index');
+            return $this->redirectToRoute('admin_outfits_index');
         }
 
-        return $this->render('outfits/edit.html.twig', [
+        return $this->render('admin/outfits/edit.html.twig', [
             'outfit' => $outfit,
             'form' => $form->createView(),
         ]);
@@ -80,6 +88,6 @@ class OutfitsController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('outfits_index');
+        return $this->redirectToRoute('admin_outfits_index');
     }
 }

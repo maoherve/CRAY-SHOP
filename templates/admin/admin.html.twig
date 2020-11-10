@@ -1,10 +1,61 @@
 {% block main %}
-    <ul>
-        <li><a href="{{ path('who_are_us_index') }}">Admin qui sommes nous</a></li>
-        <li><a href="{{ path('ur_policy_index') }}">Admin notre politique</a></li>
-        <li><a href="{{ path('a_savoir_index') }}">Admin A savoir</a></li>
-        <li><a href="{{ path('social_index') }}">Admin social</a></li>
-        <li><a href="{{ path('admin_outfits_index') }}">Admin outfits</a></li>
+    <div class="container mt-3">
+        <div class="adminContainer row">
+            <div class="card col-6 mt-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Admin "Qui sommes nous".</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Modifier les éléments de "Qui sommes nous".</h6>
+                    <a class="btn btn-primary" href="{{ path('who_are_us_index') }}">Ici !</a>
+                </div>
+            </div>
 
-    </ul>
+            <div class="card col-6 mt-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Admin "Notre politique".</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Modifier les éléments de "Notre politique".</h6>
+                    <a class="btn btn-primary" href="{{ path('ur_policy_index') }}">Ici !</a>
+                </div>
+            </div>
+
+            <div class="card col-6 mt-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Admin "A savoir".</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Modifier les éléments de "A savoir".</h6>
+                    <a class="btn btn-primary" href="{{ path('a_savoir_index') }}">Ici !</a>
+                </div>
+            </div>
+
+            <div class="card col-6 mt-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Admin "Social".</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Modifier les éléments de "Social".</h6>
+                    <a class="btn btn-primary" href="{{ path('social_index') }}">Ici !</a>
+                </div>
+            </div>
+
+            <div class="card col-6 mt-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Admin "Outfits".</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Modifier les éléments de "Outfits".</h6>
+                    <a class="btn btn-primary" href="{{ path('admin_outfits_index') }}">Ici !</a>
+                </div>
+            </div>
+
+            <div class="card col-6 mt-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Admin "Poster".</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Modifier les éléments de "Poster".</h6>
+                    <a class="btn btn-primary" href="{{ path('poster_index') }}">Ici !</a>
+                </div>
+            </div>
+
+            <div class="card col-6 mt-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Admin "Déclinaison".</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Modifier les déclinaisons des articles.</h6>
+                    <a class="btn btn-primary" href="{{ path('declinaison_index') }}">Ici !</a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock main %}

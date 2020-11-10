@@ -66,20 +66,29 @@ class Outfits
      */
     private $price;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $color;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $size;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $quantity;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Declinaison::class, mappedBy="outfits")
+     */
+    private $declinaisons;
+
+    public function __construct()
+    {
+        $this->declinaisons = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Declinaison[]
+     */
+    public function getDeclinaisons(): Collection
+    {
+        return $this->declinaisons;
+    }
 
 
     /**
@@ -124,31 +133,6 @@ class Outfits
     }
 
 
-    public function getColor(): ?string
-    {
-        return $this->color;
-    }
-
-    public function setColor(string $color): self
-    {
-        $this->color = $color;
-
-        return $this;
-    }
-
-
-    public function getSize(): ?string
-    {
-        return $this->size;
-    }
-
-    public function setSize(string $size): self
-    {
-        $this->size = $size;
-
-        return $this;
-    }
-
     public function getQuantity(): ?string
     {
         return $this->quantity;
@@ -157,6 +141,39 @@ class Outfits
     public function setQuantity(string $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+
+
+    public function setRefArticles(string $refArticles): self
+    {
+        $this->declinaisons = $refArticles;
+
+        return $this;
+    }
+
+
+    public function addDeclinaison(Declinaison $declinaison): self
+    {
+        if (!$this->declinaisons->contains($declinaison)) {
+            $this->declinaisons[] = $declinaison;
+            $declinaison->setOutfits($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDeclinaison(Declinaison $declinaison): self
+    {
+        if ($this->declinaisons->contains($declinaison)) {
+            $this->declinaisons->removeElement($declinaison);
+            // set the owning side to null (unless already changed)
+            if ($declinaison->getOutfits() === $this) {
+                $declinaison->setOutfits(null);
+            }
+        }
 
         return $this;
     }

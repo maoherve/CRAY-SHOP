@@ -1,0 +1,41 @@
+{% extends 'adminlayout.html.twig' %}
+
+{% block header %}
+    {{ parent() }}
+{% endblock %}
+
+
+{% block main %}
+    <title>Poster index</title>
+
+    <h1>Poster index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for poster in posters %}
+            <tr>
+                <td>{{ poster.id }}</td>
+                <td>{{ poster.image }}</td>
+                <td>
+                    <a href="{{ path('poster_edit', {'id': poster.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('poster_new') }}">Create new</a>
+    <a href="{{ path('admin_index') }}">Home admin</a>
+
+{% endblock %}

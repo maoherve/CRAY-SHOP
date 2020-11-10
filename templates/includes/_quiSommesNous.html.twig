@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container mt-3">
     {% for text in whoAreUs %}
-        <h2 class="mt-5">
-            {{ text.title }}
-        </h2>
+        <h2 class="">
+                {{ text.title }}
+            </h2>
 
-        <p>
-            {{ text.text }}
-        </p>
-            {% else %}
+            <p class="mb-5">
+                {{ text.text }}
+            </p>
+    {% else %}
             <p>Tqt poto on est la</p>
     {% endfor %}
 </div>

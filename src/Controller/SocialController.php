@@ -20,7 +20,7 @@ class SocialController extends AbstractController
      */
     public function index(SocialRepository $socialRepository): Response
     {
-        return $this->render('social/index.html.twig', [
+        return $this->render('admin/social/index.html.twig', [
             'socials' => $socialRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class SocialController extends AbstractController
             return $this->redirectToRoute('social_index');
         }
 
-        return $this->render('social/new.html.twig', [
+        return $this->render('admin/social/new.html.twig', [
             'social' => $social,
             'form' => $form->createView(),
         ]);
@@ -63,7 +63,7 @@ class SocialController extends AbstractController
             return $this->redirectToRoute('social_index');
         }
 
-        return $this->render('social/edit.html.twig', [
+        return $this->render('admin/social/edit.html.twig', [
             'social' => $social,
             'form' => $form->createView(),
         ]);
