@@ -1,0 +1,15 @@
+{% extends 'adminlayout.html.twig' %}
+
+{% block header %}
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>Edit WhoAreUs</h1>
+
+    {{ include('admin/who_are_us/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('who_are_us_index') }}">back to list</a>
+
+    {{ include('admin/who_are_us/_delete_form.html.twig') }}
+{% endblock %}

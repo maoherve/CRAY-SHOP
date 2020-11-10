@@ -1,0 +1,15 @@
+{% extends 'adminlayout.html.twig' %}
+
+{% block header %}
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>Edit ASavoir</h1>
+
+    {{ include('admin/a_savoir/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('a_savoir_index') }}">back to list</a>
+
+    {{ include('admin/a_savoir/_delete_form.html.twig') }}
+{% endblock %}

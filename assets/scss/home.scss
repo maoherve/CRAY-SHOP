@@ -1,8 +1,8 @@
 .posterHome {
   width: 60%;
-  margin-top: 30px;
+
 }
-.containerHome {
+.containerHome, .containerHomePoster {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -11,4 +11,7 @@
   align-content: stretch;
 }
 
+.containerHomePoster {
+  background: #0d0106;
+}
 

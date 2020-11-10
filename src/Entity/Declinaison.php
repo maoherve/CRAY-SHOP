@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\DeclinaisonRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass=DeclinaisonRepository::class)
  */

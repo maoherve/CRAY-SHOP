@@ -1,0 +1,15 @@
+{% extends 'adminlayout.html.twig' %}
+
+{% block header %}
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+    <h1>Edit Outfits</h1>
+
+    {{ include('admin/outfits/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('outfits_index') }}">back to list</a>
+
+    {{ include('admin/outfits/_delete_form.html.twig') }}
+{% endblock %}

@@ -8,7 +8,6 @@ use App\Entity\Declinaison;
 use App\Entity\Outfits;
 use App\Entity\Poster;
 use App\Entity\Social;
-use App\Form\SelectSizeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

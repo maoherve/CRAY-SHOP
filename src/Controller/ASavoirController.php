@@ -20,7 +20,7 @@ class ASavoirController extends AbstractController
      */
     public function index(ASavoirRepository $aSavoirRepository): Response
     {
-        return $this->render('a_savoir/index.html.twig', [
+        return $this->render('admin/a_savoir/index.html.twig', [
             'a_savoirs' => $aSavoirRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class ASavoirController extends AbstractController
             return $this->redirectToRoute('a_savoir_index');
         }
 
-        return $this->render('a_savoir/new.html.twig', [
+        return $this->render('admin/a_savoir/new.html.twig', [
             'a_savoir' => $aSavoir,
             'form' => $form->createView(),
         ]);
@@ -64,7 +64,7 @@ class ASavoirController extends AbstractController
             return $this->redirectToRoute('a_savoir_index');
         }
 
-        return $this->render('a_savoir/edit.html.twig', [
+        return $this->render('admin/a_savoir/edit.html.twig', [
             'a_savoir' => $aSavoir,
             'form' => $form->createView(),
         ]);

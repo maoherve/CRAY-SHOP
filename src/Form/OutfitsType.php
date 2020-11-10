@@ -2,12 +2,14 @@
 
 namespace App\Form;
 
+use App\Entity\Declinaison;
 use App\Entity\Outfits;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\Form\FormTypeInterface;
 
 class OutfitsType extends AbstractType
 {
@@ -17,6 +19,7 @@ class OutfitsType extends AbstractType
             ->add('description')
             ->add('image_name')
             ->add('price')
+            ->add('quantity')
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
                 'download_label' => false,
@@ -25,9 +28,6 @@ class OutfitsType extends AbstractType
                 'image_uri' => false,
                 'asset_helper' => false,
             ])
-            ->add('color')
-            ->add('size')
-            ->add('quantity')
         ;
     }
 
