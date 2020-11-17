@@ -27,8 +27,6 @@ class OutfitsType extends AbstractType
                 'image_uri' => false,
                 'asset_helper' => false,
             ])
-            ->add('size', Declinaison::class)
-            ->add('quantity',Declinaison::class)
         ;
     }
 
