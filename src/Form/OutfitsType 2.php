@@ -19,6 +19,7 @@ class OutfitsType extends AbstractType
             ->add('description')
             ->add('image_name')
             ->add('price')
+            ->add('quantity')
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
                 'download_label' => false,
@@ -27,8 +28,6 @@ class OutfitsType extends AbstractType
                 'image_uri' => false,
                 'asset_helper' => false,
             ])
-            ->add('size', Declinaison::class)
-            ->add('quantity',Declinaison::class)
         ;
     }
 

@@ -1,10 +1,8 @@
-{% extends 'adminlayout.html.twig' %}
+<!DOCTYPE html>
 
-{% block header %}
-    {{ parent() }}
-{% endblock %}
+<title>Edit Social</title>
 
-{% block main %}
+{% block body %}
     <h1>Edit Social</h1>
 
     {{ include('admin/social/_form.html.twig', {'button_label': 'Update'}) }}
