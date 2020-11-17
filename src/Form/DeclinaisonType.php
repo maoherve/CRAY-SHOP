@@ -14,7 +14,7 @@ class DeclinaisonType extends AbstractType
         $builder
             ->add('taille')
             ->add('quantite')
-            ->add('outfits')
+            /*->add('outfits')*/
         ;
     }
 

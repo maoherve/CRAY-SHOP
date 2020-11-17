@@ -5,11 +5,16 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Edit Declinaison</h1>
+<div class="container container-fluid">
+    <h1 class="mt-5 text-center">Edit Declinaison</h1>
+    <div class="text-center">
 
-    {{ include('admin/declinaison/_form.html.twig', {'button_label': 'Update'}) }}
+        <div class="mt-2">{{ include('admin/declinaison/_form.html.twig', {'button_label': 'Update'}) }}</div>
 
-    <a href="{{ path('declinaison_index') }}">back to list</a>
+        <div class="mt-2">{{ include('admin/declinaison/_delete_form.html.twig') }}</div>
 
-    {{ include('admin/declinaison/_delete_form.html.twig') }}
+        <a class="mt-2" href="{{ path('declinaison_index') }}">back to list</a>
+
+    </div>
+</div>
 {% endblock %}
