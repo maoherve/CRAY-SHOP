@@ -1,13 +1,20 @@
-<!DOCTYPE html>
+{% extends 'adminlayout.html.twig' %}
 
-<title>Edit Social</title>
+{% block header %}
+    {{ parent() }}
+{% endblock %}
 
-{% block body %}
-    <h1>Edit Social</h1>
+{% block main %}
+<div class="container container-fluid">
+    <h1 class="mt-5 text-center">Edit Social</h1>
+    <div class="text-center">
 
-    {{ include('admin/social/_form.html.twig', {'button_label': 'Update'}) }}
+        <div class="mt-2">{{ include('admin/social/_form.html.twig', {'button_label': 'Update'}) }}</div>
 
-    <a href="{{ path('social_index') }}">back to list</a>
+        <div class="mt-2">{{ include('admin/social/_delete_form.html.twig') }}</div>
 
-    {{ include('admin/social/_delete_form.html.twig') }}
+        <a class="mt-2" href="{{ path('social_index') }}">back to list</a>
+
+    </div>
+</div>
 {% endblock %}
