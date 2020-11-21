@@ -9,17 +9,18 @@
                 <p class="card-text">Prix: {{ outfit.price }}€</p>
                 <p class="card-text">Quantité: {{ outfit.quantity }}</p>
 
+                    <form>
+                        <select name="size" id="taille" required>
+                        <option value="">Choisissez une taille</option>
+                            {% for declinaison in declinaisons %}
+                                {% if declinaison.quantite > 0 %}
+                                    <option value="{{ declinaison.taille }}">{{ declinaison.taille }}, Stock: {{ declinaison.quantite }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
 
-                    <select name="size" id="taille" required>
-                    <option value="">Choisissez une taille</option>
-                        {% for declinaison in declinaisons %}
-                            {% if declinaison.quantite > 0 %}
-                                <option value="{{ declinaison.taille }}">{{ declinaison.taille }}, Stock: {{ declinaison.quantite }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-
-                <a href="{{ path('cart_add', {'id': outfit.id}) }}" class="btn btn-primary">Ajouter au panier</a>
+                        <a href="{{ path('cart_add', {'id': outfit.id,'taille': declinaisons}) }}" class="btn btn-primary">Ajouter au panier</a>
+                    </form>
             </div>
         </div>
 </div>

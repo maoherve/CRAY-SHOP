@@ -1,0 +1,20 @@
+{% extends 'adminlayout.html.twig' %}
+
+{% block header %}
+    {{ parent() }}
+{% endblock %}
+
+{% block main %}
+<div class="container container-fluid">
+    <h1 class="mt-5 text-center">Edit Ur Policy</h1>
+    <div class="text-center">
+
+        <div class="mt-2">{{ include('admin/ur_policy/_form.html.twig', {'button_label': 'Update'}) }}</div>
+
+        <div class="mt-2">{{ include('admin/ur_policy/_delete_form.html.twig') }}</div>
+
+        <a class="mt-2" href="{{ path('ur_policy_index') }}">back to list</a>
+
+    </div>
+</div>
+{% endblock %}
