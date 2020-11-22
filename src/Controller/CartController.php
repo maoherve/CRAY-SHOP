@@ -51,7 +51,6 @@ class CartController extends AbstractController
             $total += $totalOutfit;
         }
 
-        dd($cartWithData);
 
         return $this->render('cart/index.html.twig', [
             'outfit' => $cartWithData,

@@ -9,7 +9,7 @@
                 <p class="card-text">Prix: {{ outfit.price }}€</p>
                 <p class="card-text">Quantité: {{ outfit.quantity }}</p>
 
-                    <form>
+                    <form action="{{ path('cart_add', {'id': outfit.id}) }}" method="get">
                         <select name="size" id="taille" required>
                         <option value="">Choisissez une taille</option>
                             {% for declinaison in declinaisons %}
@@ -19,7 +19,7 @@
                             {% endfor %}
                         </select>
 
-                        <a href="{{ path('cart_add', {'id': outfit.id,'taille': declinaisons}) }}" class="btn btn-primary">Ajouter au panier</a>
+                        <button class="btn btn-primary">Ajouter au panier</button>
                     </form>
             </div>
         </div>

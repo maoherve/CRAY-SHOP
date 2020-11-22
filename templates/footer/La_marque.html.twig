@@ -2,9 +2,9 @@
 
 {% block main %}
     <div class="container container-fluid">
-        <h2>La marque et conditions :</h2>
+        <h2>La marque et conditions</h2>
         {% for text in aSavoir %}
-            <p>{{ text.resume }}</p>
+            <p class="mt-4">{{ text.resume }}</p>
         {% endfor %}
     </div>
 {% endblock %}
