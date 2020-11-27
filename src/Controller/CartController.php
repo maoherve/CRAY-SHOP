@@ -4,9 +4,9 @@ namespace App\Controller;
 
 use App\Entity\ASavoir;
 use App\Entity\Social;
+use App\Repository\DeclinaisonRepository;
 use App\Repository\OutfitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -14,8 +14,14 @@ class CartController extends AbstractController
 {
     /**
      * @Route("/cart", name="cart_index")
+     * @param SessionInterface $session
+     * @param OutfitsRepository $outfitsRepository
+     * @param DeclinaisonRepository $declinaisonRepository
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(SessionInterface $session, OutfitsRepository $outfitsRepository)
+    public function index(SessionInterface $session,
+                          OutfitsRepository $outfitsRepository,
+                          DeclinaisonRepository $declinaisonRepository)
     {
 
         $aSavoir = $this->getDoctrine()
@@ -33,6 +39,7 @@ class CartController extends AbstractController
         foreach ($cart as $id => $quantity) {
             $cartWithData[] = [
                 'outfit' => $outfitsRepository->find($id),
+                'declinaisons' => $declinaisonRepository,
                 'quantity' => $quantity
             ];
         }
@@ -43,6 +50,7 @@ class CartController extends AbstractController
             $totalOutfit = $item['outfit']->getPrice() * $item['quantity'];
             $total += $totalOutfit;
         }
+
 
         return $this->render('cart/index.html.twig', [
             'outfit' => $cartWithData,

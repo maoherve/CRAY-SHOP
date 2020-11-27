@@ -2,14 +2,11 @@
 
 namespace App\Form;
 
-use App\Entity\Declinaison;
 use App\Entity\Outfits;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
-use Symfony\Component\Form\FormTypeInterface;
 
 class OutfitsType extends AbstractType
 {
