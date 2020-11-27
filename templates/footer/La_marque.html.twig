@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    <div class="container container-fluid">
+        <h2>La marque</h2>
+        {% for text in aSavoir %}
+            <p class="mt-4">{{ text.resume }}</p>
+        {% endfor %}
+
+        <h2>Les conditions</h2>
+        {% for text in urPolicy %}
+            <p class="mt-4">{{ text.text }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

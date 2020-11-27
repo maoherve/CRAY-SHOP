@@ -13,6 +13,7 @@ class ASavoirType extends AbstractType
     {
         $builder
             ->add('text')
+            ->add('resume')
         ;
     }
 
