@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\ASavoir;
 use App\Entity\Social;
+use App\Entity\UrPolicy;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -25,6 +26,12 @@ class ASavoirHomeController extends AbstractController
             ->getRepository(Social::class)
             ->findAll();
 
-        return $this->render('footer/La_marque.html.twig', ['aSavoir' => $aSavoir, 'social' => $social]);
+        $urPolicy = $this->getDoctrine()
+            ->getRepository(UrPolicy::class)
+            ->findAll();
+
+        return $this->render('footer/La_marque.html.twig', ['aSavoir' => $aSavoir,
+            'social' => $social,
+            'urPolicy' => $urPolicy]);
     }
 }
