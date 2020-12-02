@@ -16,6 +16,7 @@ class OutfitsType extends AbstractType
             ->add('description')
             ->add('image_name')
             ->add('price')
+            ->add('quantity')
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
                 'download_label' => false,
