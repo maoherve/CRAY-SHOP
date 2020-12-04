@@ -10,7 +10,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Nom vetement</th>
                 <th>Taille</th>
                 <th>Quantite</th>
                 <th>actions</th>
@@ -19,7 +19,7 @@
         <tbody>
         {% for declinaison in declinaisons %}
             <tr>
-                <td>{{ declinaison.outfits.id }}</td>
+                <td>{{ declinaison.outfits.description }}</td>
                 <td>{{ declinaison.taille }}</td>
                 <td>{{ declinaison.quantite }}</td>
                 <td>

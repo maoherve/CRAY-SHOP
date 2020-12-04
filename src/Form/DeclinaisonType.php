@@ -3,9 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Declinaison;
+use App\Entity\Outfits;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 
 class DeclinaisonType extends AbstractType
 {
@@ -14,7 +16,7 @@ class DeclinaisonType extends AbstractType
         $builder
             ->add('taille')
             ->add('quantite')
-            /*->add('outfits')*/
+            ->add('outfits',null, ['choice_label' => 'id'])
         ;
     }
 

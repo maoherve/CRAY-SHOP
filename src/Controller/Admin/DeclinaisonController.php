@@ -43,7 +43,6 @@ class DeclinaisonController extends AbstractController
 
             return $this->redirectToRoute('declinaison_index');
         }
-
         return $this->render('admin/declinaison/new.html.twig', [
             'declinaison' => $declinaison,
             'form' => $form->createView(),
