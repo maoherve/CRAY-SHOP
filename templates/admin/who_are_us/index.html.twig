@@ -5,35 +5,35 @@
 {% endblock %}
 
 {% block main %}
-    <h1>WhoAreUs index</h1>
+    <h1 class="container-fluid container text-center">Qui sommes nous ? </h1>
 
-    <table class="table">
+    <table class="table table-striped container container-fluid">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Text</th>
-                <th>actions</th>
+                <th>Titre</th>
+                <th>Texte</th>
+                <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="m-5">
         {% for who_are_u in who_areuses %}
             <tr>
-                <td>{{ who_are_u.id }}</td>
+                <th scope="row">{{ who_are_u.id }}</th>
                 <td>{{ who_are_u.title }}</td>
                 <td>{{ who_are_u.text }}</td>
                 <td>
-                    <a href="{{ path('who_are_us_edit', {'id': who_are_u.id}) }}">edit</a>
+                    <a href="{{ path('who_are_us_edit', {'id': who_are_u.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Base de données vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('who_are_us_new') }}">Create new</a>
-    <a href="{{ path('admin_index') }}">Home admin</a>
+    <a class="btn" href="{{ path('who_are_us_new') }}">Nouveau</a>
+    <a class="btn" href="{{ path('admin_index') }}">Accueil Admin</a>
 {% endblock %}
