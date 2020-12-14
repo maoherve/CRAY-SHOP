@@ -19,11 +19,36 @@
   align-content: stretch;
 }
 
+.outfitDetail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.outfitDetailImage {
+  width: 350px;
+  height: auto;
+}
+
+.outfitDetailInformations {
+  margin-top: 50px;
+}
+
+
 
 @media screen and (max-width: 800px) {
-  .testdtm {
+  .outfitDetail {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: stretch;
   }
-  .outfitCard {
-
+  .outfitDetailForm {
+    margin-bottom: 30px;
   }
 }

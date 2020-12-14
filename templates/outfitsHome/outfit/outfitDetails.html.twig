@@ -1,26 +1,36 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-<div class="outfitcontainer container col-5">
-        <div class="card mt-5 mb-5">
-            <img class="card-img-top" src="{{ vich_uploader_asset (outfit, 'imageFile', 'App\\Entity\\Outfits') }}" alt="image">
-            <div class="card-body">
-                <p class="card-text">{{ outfit.description }}</p>
-                <p class="card-text">Prix: {{ outfit.price }}€</p>
-                <p class="card-text">Quantité: {{ outfit.quantity }}</p>
+<div class="container container-fluid">
+        <div class="outfitDetail card mt-5 mb-5">
+            <div class="">
+                <img class="outfitDetailImage card-img-top mr-5" src="{{ vich_uploader_asset (outfit, 'imageFile', 'App\\Entity\\Outfits') }}" alt="image">
+            </div>
 
-                    <form action="{{ path('cart_add', {'id': outfit.id}) }}" method="get">
-                        <select name="size" id="taille" required>
-                        <option value="">Choisissez une taille</option>
-                            {% for declinaison in declinaisons %}
-                                {% if declinaison.quantite > 0 %}
-                                    <option value="{{ declinaison.taille }}">{{ declinaison.taille }}, Stock: {{ declinaison.quantite }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
+            <div class="outfitDetailInformations">
 
-                        <button class="btn btn-primary">Ajouter au panier</button>
-                    </form>
+                <div class="card-body">
+                    <p class="card-text">{{ outfit.description }}</p>
+                    <p class="card-text">Prix: {{ outfit.price }}€</p>
+                    <p class="card-text">Quantité: {{ outfit.quantity }}</p>
+                </div>
+
+
+                <div class="outfitDetailForm">
+                        <form action="{{ path('cart_add', {'id': outfit.id}) }}" method="get">
+                            <label for="taille"></label>
+                            <select name="size" id="taille" required>
+                            <option value="">Choisissez une taille</option>
+                                {% for declinaison in declinaisons %}
+                                    {% if declinaison.quantite > 0 %}
+                                        <option value="{{ declinaison.taille }}">{{ declinaison.taille }}, Stock: {{ declinaison.quantite }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+
+                            <button class="btn btn-primary">Ajouter au panier</button>
+                        </form>
+                </div>
             </div>
         </div>
 </div>
