@@ -6,16 +6,14 @@
 
 
 {% block main %}
-    <title>Poster index</title>
+    <h1 class="container-fluid container text-center">Poster</h1>
 
-    <h1>Poster index</h1>
-
-    <table class="table">
+    <table class="table table-striped container container-fluid">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Image</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -24,19 +22,18 @@
                 <td>{{ poster.id }}</td>
                 <td>{{ poster.image }}</td>
                 <td>
-                    <a href="{{ path('poster_show', {'id': poster.id}) }}">show</a>
                     <a href="{{ path('poster_edit', {'id': poster.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Base de données vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('poster_new') }}">Create new</a>
-    <a href="{{ path('admin_index') }}">Home admin</a>
+    <a class="btn" href="{{ path('poster_new') }}">Nouveau</a>
+    <a class="btn" href="{{ path('admin_index') }}">Accueil</a>
 
 {% endblock %}

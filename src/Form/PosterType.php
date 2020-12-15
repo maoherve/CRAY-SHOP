@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Poster;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
@@ -15,7 +16,7 @@ class PosterType extends AbstractType
     {
         $builder
             ->add('image')
-            ->add('poster_name')
+            ->add('poster_name', TextType::class, ['label' => 'Nom'])
             ->add('posterFile', VichImageType::class, [
                 'required' => false,
                 'download_label' => false,
@@ -23,6 +24,7 @@ class PosterType extends AbstractType
                 'download_uri' => false,
                 'image_uri' => false,
                 'asset_helper' => false,
+                'label' => 'Fichier',
             ])
         ;
     }
