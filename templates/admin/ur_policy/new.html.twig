@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Create new UrPolicy</h1>
+    <h1 class="text-center">Créer un nouveau champ "Notre politique"</h1>
+    <div class="text-center">
 
-    {{ include('admin/ur_policy/_form.html.twig') }}
+        <div class="mt-2"> {{ include('admin/ur_policy/_form.html.twig',{'button_label': 'Sauvegarder'}) }}</div>
 
-    <a href="{{ path('ur_policy_index') }}">back to list</a>
+        <a href="{{ path('ur_policy_index') }}">Retour</a>
+    </div>
 {% endblock %}

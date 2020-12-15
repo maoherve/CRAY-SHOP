@@ -5,9 +5,10 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Create new Social</h1>
+    <h1 class="text-center">Créer un nouveau champ "Social"</h1>
+    <div class="text-center">
+        <div class="mt-3"> {{ include('admin/social/_form.html.twig',{'button_label': 'Sauvegarder'}) }}</div>
 
-    {{ include('admin/social/_form.html.twig') }}
-
-    <a href="{{ path('social_index') }}">back to list</a>
+        <a href="{{ path('social_index') }}">Retour</a>
+    </div>
 {% endblock %}

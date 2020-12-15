@@ -5,14 +5,14 @@
 {% endblock %}
 
 {% block main %}
-    <h1>ASavoir index</h1>
+    <h1 class="container-fluid container text-center">A Savoir</h1>
 
-    <table class="table">
+    <table class="table table-striped container container-fluid">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Text</th>
-                <th>actions</th>
+                <th>Texte</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,17 +21,17 @@
                 <td>{{ a_savoir.id }}</td>
                 <td>{{ a_savoir.text }}</td>
                 <td>
-                    <a href="{{ path('a_savoir_edit', {'id': a_savoir.id}) }}">edit</a>
+                    <a href="{{ path('a_savoir_edit', {'id': a_savoir.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Base de données vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('a_savoir_new') }}">Create new</a>
-    <a href="{{ path('admin_index') }}">Home admin</a>
+    <a class="btn" href="{{ path('a_savoir_new') }}">Nouveau</a>
+    <a class="btn" href="{{ path('admin_index') }}">Accueil</a>
 {% endblock %}

@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Create new WhoAreUs</h1>
 
-    {{ include('admin/who_are_us/_form.html.twig') }}
+    <h1 class="text-center">Créer un nouveau champ "Qui sommes nous ?"</h1>
+    <div class="text-center">
+        <div class="mt-2">{{ include('admin/who_are_us/_form.html.twig', {'button_label': 'Sauvegarder'}) }}</div>
 
-    <a href="{{ path('who_are_us_index') }}">back to list</a>
+        <a href="{{ path('who_are_us_index') }}">Retour</a>
+    </div>
 {% endblock %}

@@ -7,14 +7,14 @@
 {% block main %}
 
 <div class="container container-fluid">
-    <h1 class="mt-5 text-center">Edit WhoAreUs</h1>
+    <h1 class="mt-5 text-center">Modifier "Qui sommes nous ?"</h1>
     <div class="text-center">
 
-        <div class="mt-2">{{ include('admin/who_are_us/_form.html.twig', {'button_label': 'Update'}) }}</div>
+        <div class="mt-2">{{ include('admin/who_are_us/_form.html.twig', {'button_label': 'Sauvegarder'}) }}</div>
 
         <div class="mt-2">{{ include('admin/who_are_us/_delete_form.html.twig') }}</div>
 
-        <a class="mt-2 h" href="{{ path('who_are_us_index') }}">back to list</a>
+        <a class="mt-3" href="{{ path('who_are_us_index') }}">Retour</a>
     </div>
 </div>
 {% endblock %}
