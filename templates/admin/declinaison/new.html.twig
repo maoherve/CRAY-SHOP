@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Create new Declinaison</h1>
+    <h1 class="text-center">Créer un nouveau champ "Déclinaison"</h1>
+    <div class="text-center">
 
-    {{ include('admin/declinaison/_form.html.twig') }}
+        <div class="mt-3"> {{ include('admin/declinaison/_form.html.twig') }}</div>
 
-    <a href="{{ path('declinaison_index') }}">back to list</a>
+        <a href="{{ path('declinaison_index') }}">Retour</a>
+    </div>
 {% endblock %}
