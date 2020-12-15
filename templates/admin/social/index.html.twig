@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Social index</h1>
+    <h1 class="container-fluid container text-center">Social</h1>
 
-    <table class="table">
+    <table class="table table-striped container container-fluid">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Facebook</th>
                 <th>Instagram</th>
                 <th>Linkedin</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,18 +25,18 @@
                 <td>{{ social.instagram }}</td>
                 <td>{{ social.Linkedin }}</td>
                 <td>
-                    <a href="{{ path('social_edit', {'id': social.id}) }}">edit</a>
+                    <a href="{{ path('social_edit', {'id': social.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Base de données vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('social_new') }}">Create new</a>
-    <a href="{{ path('admin_index') }}">Home admin</a>
+    <a class="btn" href="{{ path('social_new') }}">Nouveau</a>
+    <a class="btn" href="{{ path('admin_index') }}">Accueil</a>
 
 {% endblock %}
