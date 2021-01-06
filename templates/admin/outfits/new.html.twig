@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Create new Outfits</h1>
+    <h1 class="text-center">Créer un nouveau champ "Outfit"</h1>
+    <div class="text-center">
 
-    {{ include('admin/outfits/_form.html.twig') }}
+        <div class="mt-2">{{ include('admin/outfits/_form.html.twig') }}</div>
 
-    <a href="{{ path('outfits_index') }}">back to list</a>
+        <a href="{{ path('admin_outfits_index') }}">Retour</a>
+    </div>
 {% endblock %}

@@ -5,14 +5,16 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Outfits index</h1>
+    <h1 class="container-fluid container text-center mt-5">Outfit</h1>
 
-    <table class="table">
+    <table class="table table-striped container container-fluid">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Description</th>
-                <th>Nom de l'image</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -20,18 +22,20 @@
             <tr>
                 <td>{{ outfit.id }}</td>
                 <td>{{ outfit.description }}</td>
+                <td>{{ outfit.price }}</td>
+                <td>{{ outfit.quantity }}</td>
                 <td>
-                    <a href="{{ path('admin_outfits_edit', {'id': outfit.id}) }}">edit</a>
+                    <a href="{{ path('admin_outfits_edit', {'id': outfit.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Base de données</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('admin_outfits_new') }}">Create new</a>
-    <a href="{{ path('admin_index') }}">Home admin</a>
+    <a class="btn" href="{{ path('admin_outfits_new') }}">Nouveau</a>
+    <a class="btn" href="{{ path('admin_index') }}">Accueil</a>
 {% endblock %}

@@ -47,7 +47,10 @@
             <button>Envoyer le paiment</button>
         </form>
     {% else %}
-        <p>Le panier est vide !</p>
+        <div class="container container-fluid mt-5">
+            <p><i class="far fa-sad-tear"></i> Vôtre panier est vide !</p>
+            <p><i class="fas fa-shopping-basket"></i> <a href="{{ path('outfits_index') }}"> Remplisez le ici !</a></p>
+        </div>
     {% endif %}
 {% endblock %}
 

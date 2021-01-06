@@ -5,15 +5,16 @@
 {% endblock %}
 
 {% block main %}
-    <h1>Declinaison index</h1>
+    <h1 class="container-fluid container text-center mt-5">Déclinaison</h1>
 
-    <table class="table">
+    <table class="table table-striped container container-fluid">
         <thead>
             <tr>
-                <th>Nom vetement</th>
+                <th>Nom du vêtement</th>
                 <th>Taille</th>
-                <th>Quantite</th>
-                <th>actions</th>
+                <th>Quantité</th>
+                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -23,17 +24,17 @@
                 <td>{{ declinaison.taille }}</td>
                 <td>{{ declinaison.quantite }}</td>
                 <td>
-                    <a href="{{ path('declinaison_edit', {'id': declinaison.id}) }}">edit</a>
+                    <a href="{{ path('declinaison_edit', {'id': declinaison.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Base de données vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('declinaison_new') }}">Create new</a>
-    <a href="{{ path('admin_index') }}">Home admin</a>
+    <a class="btn" href="{{ path('declinaison_new') }}">Nouveau</a>
+    <a class="btn" href="{{ path('admin_index') }}">Accueil</a>
 {% endblock %}
