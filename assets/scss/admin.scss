@@ -1,6 +1,11 @@
 
   @media screen and (max-width: 800px) {
     .adminContainer {
+      display: flex;
       flex-direction: column !important;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      align-content: stretch;
     }
 }
